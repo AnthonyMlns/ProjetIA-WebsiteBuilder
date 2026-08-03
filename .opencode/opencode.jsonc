@@ -1,0 +1,43 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "agent": {
+    "orchestrator": {
+      "mode": "primary",
+      "description": "Ordonnanceur du pipeline de création de sites web. Délègue à chaque agent spécialisé séquentiellement.",
+      "model": "opencode/deepseek-v4-flash",
+      "temperature": 0.2,
+      "permission": {
+        "read": "allow",
+        "edit": "allow",
+        "bash": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "task": {
+          "analyst": "allow",
+          "architect": "allow",
+          "designer": "allow",
+          "dev-frontend": "allow",
+          "dev-backend": "allow",
+          "qa": "allow",
+          "devops": "allow"
+        },
+        "skill": {
+          "*": "allow"
+        }
+      },
+      "color": "#6C5CE7",
+      "prompt": "{file:./agents/orchestrator.md}"
+    }
+  },
+
+  "permission": {
+    "edit": "allow",
+    "bash": "allow",
+    "read": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "webfetch": "allow",
+    "skill": "allow"
+  }
+}
